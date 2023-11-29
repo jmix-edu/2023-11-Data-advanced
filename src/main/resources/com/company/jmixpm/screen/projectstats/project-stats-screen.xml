@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://projectStatsScreen.caption">
+
+
+    <data readOnly="true">
+        <collection id="projectStatsesDc" class="com.company.jmixpm.entity.ProjectStats">
+            <loader id="projectStatsesDl">
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <dialogMode height="600px"
+                width="800px"/>
+    <layout>
+
+        <groupTable id="projectStatsTable" height="100%" width="100%" dataContainer="projectStatsesDc">
+            <actions>
+                <action id="refresh" type="refresh"/>
+            </actions>
+            <columns>
+                <column id="projectName"/>
+                <column id="tasksCount"/>
+                <column id="plannedEfforts"/>
+                <column id="actualEfforts"/>
+            </columns>
+            <buttonsPanel alwaysVisible="true">
+                <button id="projectStatsesTableRefreshBtn" action="projectStatsTable.refresh"/>
+            </buttonsPanel>
+            <columns/>
+        </groupTable>
+    </layout>
+</window>

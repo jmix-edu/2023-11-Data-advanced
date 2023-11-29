@@ -41,6 +41,8 @@
                     </actions>
                 </entityPicker>
                 <comboBox id="statusField" property="status"/>
+                <textArea id="projectLabelsField" property="projectLabels"
+                editable="false"/>
             </column>
         </form>
         <vbox spacing="true" expand="tabSheet">
@@ -70,7 +72,7 @@
                 <tab caption="msg://tabSheet.tasksTab.caption"
                      id="tasksTab"
                      spacing="true"
-                expand="tasksTable">
+                     expand="tasksTable">
                     <groupTable id="tasksTable" width="100%"
                                 dataContainer="tasksDc">
                         <actions>

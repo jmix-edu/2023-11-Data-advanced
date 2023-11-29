@@ -42,6 +42,9 @@
                     width="100%"
                     dataContainer="timeEntriesDc">
             <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="task"/>
@@ -53,6 +56,9 @@
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
+                <button id="createBtn" action="timeEntriesTable.create"/>
+                <button id="editBtn" action="timeEntriesTable.edit"/>
+                <button id="removeBtn" action="timeEntriesTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
