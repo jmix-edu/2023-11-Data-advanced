@@ -8,6 +8,8 @@
             <fetchPlan extends="_base">
                 <property name="manager" fetchPlan="_base"/>
             </fetchPlan>
+            <collection id="tasksDc" property="tasks"/>
+            <collection id="participantsDc" property="participants"/>
             <loader/>
         </instance>
     </data>
@@ -38,8 +40,58 @@
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
                 </entityPicker>
+                <comboBox id="statusField" property="status"/>
             </column>
         </form>
+        <vbox spacing="true" expand="tabSheet">
+            <tabSheet width="100%" id="tabSheet">
+                <tab caption="msg://tabSheet.participantsTab.caption"
+                     id="participantsTab"
+                     spacing="true"
+                     expand="usersTable">
+                    <groupTable id="usersTable"
+                                width="100%"
+                                dataContainer="participantsDc">
+                        <actions>
+                            <action id="add" type="add"/>
+                            <action id="exclude" type="exclude"/>
+                        </actions>
+                        <buttonsPanel>
+                            <button id="addBtn" action="usersTable.add"/>
+                            <button id="excludeBtn" action="usersTable.exclude"/>
+                        </buttonsPanel>
+                        <columns>
+                            <column id="username"/>
+                            <column id="firstName"/>
+                            <column id="lastName"/>
+                        </columns>
+                    </groupTable>
+                </tab>
+                <tab caption="msg://tabSheet.tasksTab.caption"
+                     id="tasksTab"
+                     spacing="true"
+                expand="tasksTable">
+                    <groupTable id="tasksTable" width="100%"
+                                dataContainer="tasksDc">
+                        <actions>
+                            <action id="create" type="create"/>
+                            <action id="edit" type="edit"/>
+                            <action id="remove" type="remove"/>
+                        </actions>
+                        <buttonsPanel>
+                            <button id="createBtn" action="tasksTable.create"/>
+                            <button id="editBtn" action="tasksTable.edit"/>
+                            <button id="removeBtn" action="tasksTable.remove"/>
+                        </buttonsPanel>
+                        <columns>
+                            <column id="name"/>
+                            <column id="startDate"/>
+                            <column id="estimatedEfforts"/>
+                        </columns>
+                    </groupTable>
+                </tab>
+            </tabSheet>
+        </vbox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>
