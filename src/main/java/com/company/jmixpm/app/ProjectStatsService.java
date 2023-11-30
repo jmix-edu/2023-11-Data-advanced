@@ -28,11 +28,9 @@ public class ProjectStatsService {
                     List<Task> tasks = project.getTasks();
                     stats.setTasksCount(tasks.size());
 
-                    Integer estimatedEfforts = tasks.stream()
-                            .map(task -> task.getEstimatedEfforts() == null ? 0 : task.getEstimatedEfforts())
-                            .reduce(0, Integer::sum);
+                    stats.setPlannedEfforts(project.getTotalEstimatedEfforts() == null
+                            ? 0 : project.getTotalEstimatedEfforts());
 
-                    stats.setPlannedEfforts(estimatedEfforts);
                     stats.setActualEfforts(getActualEfforts(project.getId()));
                     return stats;
                 })

@@ -59,6 +59,7 @@
                 <button id="createBtn" action="timeEntriesTable.create"/>
                 <button id="editBtn" action="timeEntriesTable.edit"/>
                 <button id="removeBtn" action="timeEntriesTable.remove"/>
+                <button id="showAllBtn" caption="Show All" icon="LIST"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
