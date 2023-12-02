@@ -23,6 +23,15 @@
         <item screen="Order_.browse" caption="msg://com.company.jmixpm.screen.order/orderBrowse.menu"/>
         <item screen="CustomerSearchScreen"
               caption="msg://com.company.jmixpm.screen.customersearch/customerSearchScreen.caption"/>
+        <item screen="CustomerSubstringSearchScreen"
+              caption="msg://com.company.jmixpm.screen.customersubstringsearch/customerSubstringSearchScreen.caption"/>
+    </menu>
+
+    <menu id="audit" caption="msg://com.company.jmixpm/menu.audit">
+        <item screen="TaskEntityLogBrowse"
+              caption="msg://com.company.jmixpm.screen.taskentitylogbrowse/taskEntityLogBrowse.caption"/>
+        <item screen="ProjectSnapshotBrowse"
+              caption="msg://com.company.jmixpm.screen.projectsnapshotbrowse/projectSnapshotBrowse.caption"/>
     </menu>
 
 </menu-config>

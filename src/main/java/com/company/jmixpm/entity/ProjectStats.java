@@ -14,6 +14,7 @@ public class ProjectStats {
     @JmixProperty
     private UUID id;
 
+    @JmixProperty
     private String projectName;
 
     @JmixProperty

@@ -8,6 +8,7 @@ import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.SystemLevel;
 import io.jmix.core.metamodel.annotation.*;
+import io.jmix.core.pessimisticlocking.PessimisticLock;
 import io.jmix.core.validation.group.UiCrossFieldChecks;
 
 import javax.annotation.PostConstruct;
@@ -18,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+@PessimisticLock(timeoutSec = 10)
 @JmixEntity
 @Table(name = "PROJECT", indexes = {
         @Index(name = "IDX_PROJECT_MANAGER", columnList = "MANAGER_ID")
@@ -80,10 +82,22 @@ public class Project {
     @Column(name = "OWNER_ID")
     private UUID ownerId;
 
+    @Column(name = "VERSION", nullable = false)
+    @Version
+    private Integer version;
+
     @DependsOnProperties({"ownerId"})
     @JmixProperty
     @Transient
     private Customer owner;
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
 
     public Customer getOwner() {
         return owner;

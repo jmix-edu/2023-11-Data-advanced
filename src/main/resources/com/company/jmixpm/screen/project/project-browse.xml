@@ -10,9 +10,10 @@
                 <property name="manager" fetchPlan="_base"/>
                 <property name="owner" fetchPlan="_base"/>
             </fetchPlan>
-            <loader id="projectsDl">
+            <loader id="projectsDl" cacheable="true">
                 <query>
-                    <![CDATA[select e from Project e]]>
+                    <![CDATA[select e from Project e ]]>
+<!--        where function('actual_efforts', e.id) > e.totalEstimatedEfforts]]> -->
                 </query>
             </loader>
         </collection>
